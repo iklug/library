@@ -1,3 +1,27 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+
+  --heading: #047857;
+
+  @font-face {
+    font-family: Roboto;
+    src: url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap");
+  }
+}
+
+.grid-layout {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 130px 1fr;
+}
+.heading {
+  background-color: var(--heading);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 15px;
+  font-family: "Times New Roman", Times, serif;
+  color: #f8fafc;
 }
