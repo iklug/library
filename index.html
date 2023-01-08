@@ -16,7 +16,22 @@
       <div class="heading">
         <h1>Library</h1>
       </div>
-      <div class="book-form"></div>
+      <form action="" class="book-form">
+        <label for="title"></label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          placeholder="Title"
+          required
+        />
+        <input type="text" id="author" name="author" placeholder="Author" />
+
+        <button type="button" class="read-button">read</button>
+
+        <button type="submit" class="addbutton">Add Book</button>
+      </form>
+
       <div class="book-display"></div>
     </div>
   </body>

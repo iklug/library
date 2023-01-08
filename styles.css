@@ -25,3 +25,83 @@
   font-family: "Times New Roman", Times, serif;
   color: #f8fafc;
 }
+.heading h1 {
+  border: 1px solid #f8fafc;
+  padding: 10px;
+}
+.book-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background-color: #f8fafc;
+  font-family: Roboto;
+}
+.book-form input {
+  height: 1.9rem;
+  border: none;
+  border-radius: 3px;
+  padding-left: 10px;
+  width: 200px;
+  font-family: inherit;
+}
+.addbutton {
+  background-color: var(--heading);
+  color: #f8fafc;
+}
+.read-button {
+  background-color: white;
+}
+.book-form button {
+  height: 1.9rem;
+  border: 0.5px solid var(--heading);
+  border-radius: 3px;
+  width: 100px;
+  font-family: inherit;
+}
+.read-button:hover {
+  border: 0.5px solid red;
+}
+.book-display {
+  background-color: #f8fafc;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding-left: 75px;
+}
+.listed-book {
+  height: 250px;
+  width: 200px;
+  background-color: white;
+  box-shadow: 2px 2px 4px lightgrey;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 30px 5px 10px 5px;
+}
+.listed-book div {
+  width: 140px;
+  overflow-wrap: break-word;
+  text-align: center;
+  font-family: Roboto;
+
+  height: 60px;
+}
+.listed {
+  height: 30px;
+  width: 120px;
+  border: 0.25px solid var(--heading);
+  border-radius: 15px;
+  background-color: white;
+  font-family: Roboto;
+  font-size: 0.8rem;
+}
+.read-border {
+  border: 0.25px solid var(--heading);
+}
+.unread-border {
+  border: 0.25px solid red;
+}
