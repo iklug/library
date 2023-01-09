@@ -99,9 +99,9 @@
   font-family: Roboto;
   font-size: 0.8rem;
 }
-.read-border {
+/* .read-border {
   border: 0.25px solid var(--heading);
-}
+} */
 .unread-border {
   border: 0.25px solid red;
 }
