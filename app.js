@@ -60,15 +60,15 @@ displayBooks(myLibrary);
 //     button.classList.remove('read-border');
 //     button.classList.add('unread-border');
 // }
-
 const buttons = document.querySelectorAll('.listed');
 
 
-
+const buttonFlip = () => {
 
 Array.from(buttons).forEach(key => key.addEventListener('click', (key) => {
     
     key.target.classList.toggle('unread-border');
+    console.log('toggle woggle');
     if(key.target.getAttribute('class') === 'listed unread-border'){
         return key.target.textContent = 'Not Read';
     } 
@@ -78,10 +78,32 @@ Array.from(buttons).forEach(key => key.addEventListener('click', (key) => {
 }
         
     
-));
+))};
+
+buttonFlip();
+
 // Array.from(badButtons).forEach(key => key.addEventListener('click', (key) =>
 //     {key.target.classList.remove('unread-border'); 
 //         key.target.classList.add('read-border');
 //         key.target.textContent = 'Read';
 //         }
 // ));
+
+const form = document.getElementById('submission');
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const newBookObj = {
+    
+    };
+    newBookObj.title = form.title.value;
+    newBookObj.author = form.author.value;
+    newBookObj.haveRead = true;
+    form.title.value = '';
+    form.author.value = '';
+    addNewBook(newBookObj);
+
+});
+
+
