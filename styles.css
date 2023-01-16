@@ -45,19 +45,21 @@
   width: 200px;
   font-family: inherit;
 }
-.addbutton {
+/* .addbutton {
   background-color: var(--heading);
   color: #f8fafc;
-}
-.read-button {
+} */
+/* .read-button {
   background-color: white;
-}
-.book-form button {
+} */
+.addbutton {
   height: 1.9rem;
   border: 0.5px solid var(--heading);
   border-radius: 3px;
   width: 100px;
   font-family: inherit;
+  background-color: var(--heading);
+  color: #f8fafc;
 }
 .read-button:hover {
   border: 0.5px solid red;
@@ -81,6 +83,10 @@
   align-items: center;
   justify-content: space-around;
   padding: 30px 5px 10px 5px;
+  position: relative;
+}
+.listed-book:hover {
+  box-shadow: 4px 4px 6px lightgrey;
 }
 .listed-book div {
   width: 140px;
@@ -104,4 +110,27 @@
 } */
 .unread-border {
   border: 0.25px solid red;
+}
+
+.book-title {
+  font-style: italic;
+}
+.position-test {
+  position: absolute;
+  left: 115px;
+  top: 5px;
+}
+.delete {
+  height: 17px;
+  border: 0.5px solid red;
+  background-color: white;
+  border-radius: 30px;
+  color: red;
+  display: none;
+}
+.listed-book:hover button {
+  display: inline-block;
+}
+.delete:hover {
+  transform: scale(1.1);
 }

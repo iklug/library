@@ -19,8 +19,7 @@ myLibrary.push(bookObject);
 console.log( `${bookObject.title} has been added to the Library.`);
 
 }
-addBookToLibrary(book1);
-addBookToLibrary(book2);
+
 
 // html related manipulation
 
@@ -31,6 +30,12 @@ const addNewBook = (obj) => {
     const newBook = document.createElement('div');
 newBook.classList.add('listed-book');
 newBook.setAttribute('data-index', `${myLibrary.length}`);
+const deleteButtonDiv = document.createElement('div');
+deleteButtonDiv.classList.add('position-test');
+const actualDelete = document.createElement('button')
+actualDelete.classList.add('delete');
+actualDelete.textContent = 'X';
+deleteButtonDiv.appendChild(actualDelete);
 const bookTitle = document.createElement('div');
 bookTitle.classList.add('book-title');
 bookTitle.textContent = obj.title;
@@ -46,7 +51,12 @@ buttonDiv.appendChild(readButton);
 newBook.appendChild(bookTitle);
 newBook.appendChild(bookAuthor);
 newBook.appendChild(buttonDiv);
+newBook.appendChild(deleteButtonDiv);
 bookList.appendChild(newBook);
+console.log(readButton.getAttribute('class'));
+
+
+
 }
 
 const displayBooks = (array) => {
@@ -60,13 +70,13 @@ displayBooks(myLibrary);
 //     button.classList.remove('read-border');
 //     button.classList.add('unread-border');
 // }
+
+
 const buttons = document.querySelectorAll('.listed');
 
-
-const buttonFlip = () => {
-
+const changeBorder = () => {
 Array.from(buttons).forEach(key => key.addEventListener('click', (key) => {
-    
+     
     key.target.classList.toggle('unread-border');
     console.log('toggle woggle');
     if(key.target.getAttribute('class') === 'listed unread-border'){
@@ -80,30 +90,51 @@ Array.from(buttons).forEach(key => key.addEventListener('click', (key) => {
     
 ))};
 
-buttonFlip();
 
-// Array.from(badButtons).forEach(key => key.addEventListener('click', (key) =>
-//     {key.target.classList.remove('unread-border'); 
-//         key.target.classList.add('read-border');
-//         key.target.textContent = 'Read';
-//         }
-// ));
+document.querySelector('.book-display').addEventListener('click', (e)=>{
+    console.log(e.target);
+    if(e.target.classList.contains('listed')){
+        console.log('clicked!');
+        e.target.classList.toggle('unread-border');
+        e.target.classList.contains('unread-border') ? e.target.textContent = 'Not Read' : e.target.textContent = 'Read';
+        ;
+    }
+});
+document.querySelector('form').addEventListener('click', (e)=>{
+    console.log(e.target);
+    if(e.target.classList.contains('listed')){
+        console.log('clicked!');
+        e.target.classList.toggle('unread-border');
+        e.target.classList.contains('unread-border') ? e.target.textContent = 'Not Read' : e.target.textContent = 'Read';
+        ;
+    }
+});
+
+
 
 const form = document.getElementById('submission');
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
-
-    const newBookObj = {
-    
-    };
-    newBookObj.title = form.title.value;
-    newBookObj.author = form.author.value;
-    newBookObj.haveRead = true;
+const readValue = document.querySelector('#readBoolean');
+console.log(readValue);
+const readBool = readValue.textContent === 'Read';
+console.log(readBool);
+    const thisBook = new Book(`${form.title.value}`, `${form.author.value}`, readBool);
     form.title.value = '';
     form.author.value = '';
-    addNewBook(newBookObj);
+    
+    addNewBook(thisBook);
 
 });
 
+console.log(myLibrary);
 
+const removeBook = (array, index) => {
+    array.splice(index, 1);
+    return array;
+}
+
+removeBook(myLibrary, 0);
+console.log(myLibrary);
+displayBooks(myLibrary);
