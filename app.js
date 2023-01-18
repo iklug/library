@@ -91,6 +91,13 @@ Array.from(buttons).forEach(key => key.addEventListener('click', (key) => {
 ))};
 
 
+const killChildren = (parent, child) => {
+    parent.removeChild(child);
+    
+   
+}
+
+
 document.querySelector('.book-display').addEventListener('click', (e)=>{
     console.log(e.target);
     if(e.target.classList.contains('listed')){
@@ -99,7 +106,15 @@ document.querySelector('.book-display').addEventListener('click', (e)=>{
         e.target.classList.contains('unread-border') ? e.target.textContent = 'Not Read' : e.target.textContent = 'Read';
         ;
     }
+    if(e.target.classList.contains('delete')){
+const placement = e.target.parentElement.parentElement.getAttribute('data-index');
+        killChildren(document.querySelector('div.book-display'),
+            document.querySelector(`[data-index="${placement}"`));
+    }
 });
+
+
+
 document.querySelector('form').addEventListener('click', (e)=>{
     console.log(e.target);
     if(e.target.classList.contains('listed')){
@@ -108,7 +123,9 @@ document.querySelector('form').addEventListener('click', (e)=>{
         e.target.classList.contains('unread-border') ? e.target.textContent = 'Not Read' : e.target.textContent = 'Read';
         ;
     }
+  
 });
+
 
 
 
@@ -123,8 +140,9 @@ console.log(readBool);
     const thisBook = new Book(`${form.title.value}`, `${form.author.value}`, readBool);
     form.title.value = '';
     form.author.value = '';
-    
-    addNewBook(thisBook);
+    myLibrary.push(thisBook);
+    console.log(myLibrary);
+    addNewBook(myLibrary.at(-1));
 
 });
 
@@ -138,3 +156,4 @@ const removeBook = (array, index) => {
 removeBook(myLibrary, 0);
 console.log(myLibrary);
 displayBooks(myLibrary);
+
